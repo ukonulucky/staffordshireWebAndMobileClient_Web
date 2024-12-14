@@ -20,7 +20,6 @@ const SignUpComp = () => {
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors },
   } = useForm<IFormInput>({
     resolver: yupResolver(signUpSchema),
@@ -30,11 +29,7 @@ const SignUpComp = () => {
 
   /* show modal when email is not verified */
 
-  const [showVerifyEmailModel, setShowVerifyEmailModel] = useState(false);
-
-  const [userEmail, setUserEmail] = useState("");
-
-  const [userToken, setUserToken] = useState("");
+ 
   /* for navigation */
 
  /*  const router = useRouter(); */
@@ -43,19 +38,23 @@ const SignUpComp = () => {
   const [loader, setLoader] = useState(false);
 
   /* start api call */
-  const [startApiCall, setStartApiCall] = useState(false);
+
 
   // Define the form submission handler
 
   const onSubmit = async (data: { email: string; password: string }) => {
     try {
       setLoader(!loader);
-      setStartApiCall(true);
+      console.log(data)
       /* make api call for user signUp */
 
       /*   await signInMutation.mutateAsync(data); */
-    } catch (error: any) {
-      console.log(error.message);
+    } catch (error:unknown) {
+      if (error instanceof Error) {
+        console.log(error.message); // `error.message` is now safe to use
+      } else {
+        console.log("An unknown error occurred"); // If it's not an instance of `Error`
+      }
     } finally {
       setLoader(false);
     }
@@ -64,9 +63,6 @@ const SignUpComp = () => {
   return (
     <div className="flex flex-col  h-full relative">
       {loader && <LoadingScreen />}
-
-     
-
       <div className=" flex flex-row justify-between   lg:justify-end  items-center space-x-1 absolute left-4 top-8 right-4 ">
         <Link href={"/"}>
           <p className="font-[500] font-solway text-[25px]  text-gray-600  block lg:hidden ">

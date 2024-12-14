@@ -3,7 +3,6 @@ import React, {useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { loginSchema } from "@/utils/yubValidation";
 import LoadingScreen from "@/AppGlobal/ComponentLoader";
 
@@ -19,7 +18,7 @@ const LoginComp = () => {
   const {
     register,
     handleSubmit,
-    getValues,
+
     formState: { errors },
   } = useForm<IFormInput>({
     resolver: yupResolver(loginSchema),
@@ -28,33 +27,31 @@ const LoginComp = () => {
 
 
 
-  /* show modal when email is not verified */
 
-  const [showVerifyEmailModel, setShowVerifyEmailModel] = useState(false);
 
-  const [userEmail, setUserEmail] = useState("");
 
-  const [userToken, setUserToken] = useState("");
-  /* for navigation */
-
-  const router = useRouter();
 
   /* set the display of the loader */
   const [loader, setLoader] = useState(false);
 
   /* start api call */
-  const [startApiCall, setStartApiCall] = useState(false);
+
   // Define the form submission handler
 
   const onSubmit = async (data: { email: string; password: string }) => {
     try {
       setLoader(!loader);
-      setStartApiCall(true);
+   console.log(data)
       /* make api call for user signUp */
 
     /*   await signInMutation.mutateAsync(data); */
-    } catch (error: any) {
-      console.log(error.message);
+    } catch (error:unknown) {
+  
+      if (error instanceof Error) {
+        console.log(error.message); // `error.message` is now safe to use
+      } else {
+        console.log("An unknown error occurred"); // If it's not an instance of `Error`
+      }
     } finally {
       setLoader(false);
     }

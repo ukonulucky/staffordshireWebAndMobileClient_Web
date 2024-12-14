@@ -1,7 +1,6 @@
-import { serviceList } from '@/utils/data'
+
 import { serviceType } from '@/utils/types'
-import Image, { ImageProps } from 'next/image'
-import Link from 'next/link'
+import Image from 'next/image'
 import React from 'react'
 
 function ServiceComp({ 

@@ -1,14 +1,14 @@
 "use client";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React, { useState } from "react";
+import React from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import { carouselData } from "@/utils/data";
 
 
 function Carousel() {
-  const [curentIndex, setCurentIndex] = useState(0);
+
 
   const settings = {
     fade: true,
@@ -20,9 +20,7 @@ function Carousel() {
     autoplaySpeed: 4000,
     pauseOnHover: false,
     cssEase: "linear",
-    beforeChange: (prevIndex: number, nextIndex: number) => {
-      setCurentIndex(nextIndex);
-    },
+  
   };
   return (
     <div className="">

@@ -1,15 +1,9 @@
-
 "use client"
 import LoginComp from "@/components/auth/LoginComp";
 import Image from "next/image";
 import Link from "next/link";
 
-
-
-
-
 function Login() {
-
   return (
     <div className="w-screen h-screen  flex flex-row">
       <div className="hidden relative   lg:block w-4/12 bg-blue-500" >

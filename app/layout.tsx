@@ -3,9 +3,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
-import HeaderComp from "@/components/homePage/header";
-import HeroSection from "@/components/homePage/HeroSection";
-import HomeFooter from "@/components/homePage/footer";
 import AppRootComponent from "@/AppGlobal/AppRootComponent";
 
 
@@ -14,6 +11,8 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
+
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -55,7 +54,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable}   ${inter.variable} antialiased`}
       >
-        <AppRootComponent children ={ children } />
+        <AppRootComponent>
+        { children } 
+        </AppRootComponent>
+      
       </body>
     </html>
   );

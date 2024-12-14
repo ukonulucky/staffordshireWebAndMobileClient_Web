@@ -1,10 +1,10 @@
 "use client"
-import { pathNameList, routes } from '@/utils/data'
+import {  routes } from '@/utils/data'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import HamburgerMenu from './handBurger'
-import { usePathname } from 'next/navigation';
+
 
 
 function HeaderComp() {

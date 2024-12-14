@@ -4,7 +4,6 @@ import Image from "next/image";
 import React, { useEffect, useMemo, useState } from "react";
 import Carousel from "./slider";
 import { usePathname } from "next/navigation";
-import { pathNameList } from "@/utils/data";
 
 function HeroSection() {
     const pathName = usePathname()

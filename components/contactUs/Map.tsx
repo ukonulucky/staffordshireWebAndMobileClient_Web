@@ -1,5 +1,4 @@
 "use client"
-import { mapPropTypes } from '@/utils/types'
 import { Loader } from '@googlemaps/js-api-loader'
 import React, { useEffect, useRef } from 'react'
 
@@ -32,7 +31,7 @@ const mapRef = useRef<HTMLDivElement>(null)
             }
             const map = new Map(mapRef?.current as HTMLDivElement, options)
 
-            const marker = new Marker({
+          new Marker({
                 map: map,
                 position:myLocation  
             })
