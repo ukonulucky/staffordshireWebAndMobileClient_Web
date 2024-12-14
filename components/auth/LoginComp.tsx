@@ -18,7 +18,6 @@ const LoginComp = () => {
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm<IFormInput>({
     resolver: yupResolver(loginSchema),
@@ -59,9 +58,7 @@ const LoginComp = () => {
 
   return (
     <div className="flex flex-col  h-full relative">
-      {loader && <LoadingScreen />}
-
-          
+      {loader && <LoadingScreen />}          
           <div className=" flex flex-row justify-between   lg:justify-end  items-center space-x-1 absolute left-4 top-8 right-4 ">
               
               <Link  href={"/"}>
@@ -71,7 +68,7 @@ const LoginComp = () => {
               </Link>
               <div className="flex flex-row">
               <p>
-                      Don’t have an account? {" "}
+                      Don&apos;t have an account? {" "}
               
               </p>
               <Link href={"/signUp"}>
