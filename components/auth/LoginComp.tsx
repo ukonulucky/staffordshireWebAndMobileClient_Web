@@ -43,7 +43,7 @@ const LoginComp = () => {
       /* make api call for user signUp */
 
     /*   await signInMutation.mutateAsync(data); */
-    } catch (error:unknown) {
+    } catch (error:any) {
   
       if (error instanceof Error) {
         console.log(error.message); // `error.message` is now safe to use
