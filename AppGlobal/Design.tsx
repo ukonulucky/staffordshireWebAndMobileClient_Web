@@ -1,0 +1,1 @@
+export const textStyle = "font-inter text-[16px] text-[#00000080] "
