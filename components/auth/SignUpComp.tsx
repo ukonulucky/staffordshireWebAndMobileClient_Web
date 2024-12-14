@@ -41,8 +41,13 @@ const SignUpComp = () => {
       /* make api call for user signUp */
 
       /*   await signInMutation.mutateAsync(data); */
-    } catch (error:any ) {
-      console.log("An unknown error occurred"); 
+    } catch (error: unknown) {
+      
+      if (error instanceof Error) {
+        console.log(error.message); // `error.message` is now safe to use
+      } else {
+        console.log("An unknown error occurred"); // If it's not an instance of `Error`
+      }
      
     } finally {
       setLoader(false);
