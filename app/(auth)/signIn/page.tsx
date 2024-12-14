@@ -1,11 +1,13 @@
 "use client";
-import LoginComp from "@/components/auth/LoginComp";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
 
 
 function SignIn() {
-
+  const LoginComp = dynamic(() => import("@/components/auth/LoginComp"), {
+    ssr: false, // This disables server-side rendering for the component
+  });
   return (
     <div className="w-screen h-screen  flex flex-row">
       <div className="hidden relative   lg:block w-4/12 bg-blue-500" >
