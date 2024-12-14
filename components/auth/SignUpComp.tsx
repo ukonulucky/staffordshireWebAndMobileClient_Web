@@ -49,7 +49,7 @@ const SignUpComp = () => {
       /* make api call for user signUp */
 
       /*   await signInMutation.mutateAsync(data); */
-    } catch (error:any) {
+    } catch (error:unknown) {
       if (error instanceof Error) {
         console.log(error.message); // `error.message` is now safe to use
       } else {

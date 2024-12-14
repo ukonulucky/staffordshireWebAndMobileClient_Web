@@ -1,6 +1,5 @@
 "use client";
 import LoginComp from "@/components/auth/LoginComp";
-import SignUpComp from "@/components/auth/SignUpComp"
 import Image from "next/image";
 import Link from "next/link";
 
