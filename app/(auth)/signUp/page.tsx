@@ -1,11 +1,7 @@
 "use client";
-
 import SignUpComp from "@/components/auth/SignUpComp"
 import Image from "next/image";
 import Link from "next/link";
-
-
-
 
 
 function SignUp() {
