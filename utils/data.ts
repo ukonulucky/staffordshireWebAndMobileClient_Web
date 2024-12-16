@@ -198,3 +198,25 @@ export const serviceList2 = [
        index: 4
     }
 ]
+
+export const servicesData = [
+    {
+        serviceMain: "Haire styling",
+        list: [
+            "1", "2", "3","4", "5", "6", "7","8"
+        ]
+    },
+    
+    {
+        serviceMain: "Haire2 styling",
+        list: [
+             "9", "10", "11","12", "13", "14", "15","16"
+        ]
+    },
+    {
+        serviceMain: "Haire3 styling",
+        list: [
+           "17", "18", "19","20", "21", "22", "23","24"
+        ]
+    }
+]

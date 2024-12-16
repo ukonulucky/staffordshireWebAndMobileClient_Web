@@ -61,4 +61,12 @@ export const changePasswordSchema = yup.object().shape({
     .required('Confirm password is required')
 });
 
+export const formSchema = yup.object({
+  fullName: yup.string().required("Full name is required"),
+  email: yup.string().email('Invalid email address').required('Email is required'),
+  phone: yup.string().required("Phone number is required").matches(/^(?:\+44|0)(?:7\d{9}|1\d{9}|2\d{9}|3\d{9})$/, "Enter a valid UK phone number"),
+  date: yup.string().required("Date is required"), 
+  service: yup.string().required("Service is required")
+})
+
 

@@ -17,3 +17,15 @@ export type mapPropTypes = {
     lat: number,
     lng: number
 }
+
+export type formType = {
+    fullName: string,
+    email: string,
+    phone: string,
+    date: string,
+    service: string
+
+}
+export type datePickerPropType = {
+    handleDate: (date: string) => void
+}

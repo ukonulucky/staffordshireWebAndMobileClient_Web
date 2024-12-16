@@ -1,6 +1,8 @@
-
+"use client"
+import AppointmentForm from '@/components/servicePage/appointmentForm'
 import ServiceComp from '@/components/servicePage/serviceComp'
 import {serviceList2 } from '@/utils/data'
+import Image from 'next/image'
 import React from 'react'
 
 function page() {
@@ -30,6 +32,25 @@ function page() {
           </div>
         })
       }
+
+
+      <div className='bg-[#F3E2D5] py-14 px-4 lg:px-32 '>
+
+        <div className='bg-white flex flex-row  lg:space-x-10'>
+          <div className='hidden lg:block h-[700] w-[324] relative'>
+          
+            <Image
+              alt='appointment image'
+              src={"/images/booking.jpg"}
+             fill
+            />
+        </div>
+          <div className='flex-1'>
+            <AppointmentForm />
+        </div>
+        </div>
+
+      </div>
       
       
     </div>
