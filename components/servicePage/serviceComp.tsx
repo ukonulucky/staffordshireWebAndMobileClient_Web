@@ -32,12 +32,12 @@ function ServiceComp({
               <h2 className='font-inter text-[50px] leading-[58px] text-[#6B0606] text-center'>
           { serviceHeading}
               </h2>
-              <p className='font-inter text-[16px] text-[#00000080] mt-2'>
+             <p className='font-inter text-[16px] text-[#00000080] mt-2'>
           { serviceSubHeading}
               
-              </p>
+              </p> 
 
-              <div>
+             <div>
               { 
                   serviceList.map(service => { 
                       return <div className='flex flex-row items-center mt-4' key={service.serviceName}>
@@ -51,14 +51,14 @@ function ServiceComp({
                           <span>.........................................................from</span>
                           <span className='pl-2'>
                           ${ 
-                                  service.serviceAmount
+                                  service.servicePrice
                               }
                         </span>
                           
                       </div>
                   })
               }
-              </div>
+              </div> 
             
       </div>
       

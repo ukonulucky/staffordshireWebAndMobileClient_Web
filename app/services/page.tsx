@@ -1,11 +1,17 @@
 "use client"
 import AppointmentForm from '@/components/servicePage/appointmentForm'
 import ServiceComp from '@/components/servicePage/serviceComp'
+import { useAppSelector } from '@/redux/store'
 import {serviceList2 } from '@/utils/data'
+import { serviceAndCategoryType } from '@/utils/types'
 import Image from 'next/image'
 import React from 'react'
 
 function page() {
+
+  const services= useAppSelector(state => state.service.serviceAndCategory)
+console.log("fetched service", services)
+
   return (
       <div>
       <div className='flex flex-col items-center w-full mt-4'>
@@ -18,20 +24,29 @@ function page() {
               </p>
       </div>
       { 
-        serviceList2.map(service => { 
-         
-     return     <div key={service.index}>
-       <ServiceComp
-         index={service.index}
-         serviceHeading={service.serviceHeading}
-         serviceImageUrl={service.serviceImageUrl}
-         serviceList={service.serviceList}
-         serviceSubHeading={ service.serviceSubHeading}
-       
-       />
-          </div>
+        services.length === 0 ? <p>No service available</p> : services.map((service: serviceAndCategoryType, index) => { 
+          
+          const { categoryName, categoryImage,categoryId } = service.category
+          
+     const data = service.services
+
+
+          return <div key={index}>
+          <ServiceComp
+            index={index}
+            serviceHeading={categoryName}
+              serviceImageUrl={categoryImage}
+              serviceSubHeading='best description'
+              serviceList={data}
+              key={categoryId}
+           
+          
+          />
+             </div>
         })
       }
+
+     
 
 
       <div className='bg-[#F3E2D5] py-14 px-4 lg:px-32 '>

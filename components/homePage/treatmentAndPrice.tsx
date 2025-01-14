@@ -1,9 +1,17 @@
+"use client"
+import { useAppSelector } from '@/redux/store'
 import { serviceList } from '@/utils/data'
+import { serviceAndCategoryType } from '@/utils/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
 function TreatmentAndPrice() {
+
+    const serviceList = useAppSelector(state => state.service.serviceAndCategory)
+    
+
+
   return (
       <div className='w-full flex flex-row justify-center'>
           <div className='w-5/12 h-[400px] lg:flex flex-row justify-end items-center hidden'>
@@ -25,28 +33,41 @@ function TreatmentAndPrice() {
               
               </p>
 
-              <div>
+              
               { 
-                  serviceList.map(service => { 
-                      return <div className='flex flex-row items-center mt-4' key={service.serviceName}>
-                        
-                              <span>
+                  
+                  serviceList.length > 0 ?  
+                  <div>
+                  { 
+                              serviceList.slice(0,1).map((service: serviceAndCategoryType, index) => { 
+                          return <div key={index}>
+                            
                               { 
-                                  service.serviceName
+                                  service.services.map(i => <div className='flex flex-row items-center mt-4'  key={i.serviceId}>
+                                      <span>
+                                  { 
+                                      i.serviceName
+                                  }
+                                  </span>
+                                  
+                              <span>.........................................................from</span>
+                              <span className='pl-2'>
+                              ${ 
+                                      i.servicePrice
+                                  }
+                            </span>
+
+                                  </div>)
                               }
-                              </span>
                               
-                          <span>.........................................................from</span>
-                          <span className='pl-2'>
-                          ${ 
-                                  service.serviceAmount
-                              }
-                        </span>
-                          
-                      </div>
-                  })
+                          </div>
+                      })
+                  }
+                  </div>
+                  : <p>No serviice available</p>
               }
-              </div>
+          
+            
               <Link className='text-[#6B0606] underline mt-4' href="services">
               <span className='text-[12px]'>View All</span>
               </Link>

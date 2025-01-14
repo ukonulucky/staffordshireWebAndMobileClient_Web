@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
-import AppRootComponent from "@/AppGlobal/AppRootComponent";
+import AppProvder from "./../AppGlobal/AppProvder"
 
 
 
@@ -39,8 +39,6 @@ export default function RootLayout({
 }>) {
 
 
-
-
   return (
     <html lang="en">
      
@@ -54,9 +52,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable}   ${inter.variable} antialiased`}
       >
-        <AppRootComponent>
-        { children } 
-        </AppRootComponent>
+     
+        
+        
+        <AppProvder>
+          { children }
+         </AppProvder>
       
       </body>
     </html>

@@ -3,7 +3,8 @@ import { ImageProps } from "next/image"
 
 export type serviceListArrayType = {
     serviceName: string,
-    serviceAmount: number
+    servicePrice: string,
+    serviceId: string
 }[]
 export type serviceType = {
     serviceImageUrl: string,
@@ -28,4 +29,19 @@ export type formType = {
 }
 export type datePickerPropType = {
     handleDate: (date: string) => void
+}
+
+export type serviceAndCategoryType = {
+    category: {
+        categoryName: string,
+        categoryId: number,
+        categoryImage: string
+    },
+    services: {
+        serviceName: string,
+        servicePrice: string,
+        serviceId: string
+    }[]
+
+
 }

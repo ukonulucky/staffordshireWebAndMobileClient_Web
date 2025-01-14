@@ -32,20 +32,16 @@ export const carouselData = [
         key: 1
     },
     {
-        imageUrl: "/images/Hero-homepage.jpg",
+        imageUrl: "/images/pic1.jpeg",
         key: 2
     },
     {
-        imageUrl: "/images/Hero-homepage.jpg",
+        imageUrl: "/images/pic2.jpeg",
         key: 3
     },
     {
-        imageUrl: "/images/Hero-homepage.jpg",
+        imageUrl: "/images/pic3.jpeg",
         key: 4
-    },
-    {
-        imageUrl: "/images/Hero-homepage.jpg",
-        key: 5
     }
 ]
 

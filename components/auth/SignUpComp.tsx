@@ -1,5 +1,5 @@
 "use client"
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
@@ -7,6 +7,11 @@ import Link from "next/link";
 import { signUpSchema } from "@/utils/yubValidation";
 import LoadingScreen from "@/AppGlobal/ComponentLoader";
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
+import { useAppDispatch } from "@/redux/store";
+import { loginSuccess, setAppLoaderAction } from "@/redux/authSlice";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useRouter } from "next/navigation";
 
 // Define TypeScript types for form values
 interface IFormInput {
@@ -16,6 +21,8 @@ interface IFormInput {
 }
 
 const SignUpComp = () => {
+const router = useRouter()
+
   // Initialize the form with react-hook-form and Yup resolver
   const {
     register,
@@ -34,25 +41,54 @@ const SignUpComp = () => {
 
   // Define the form submission handler
 
-  const onSubmit = async (data: { email: string; password: string }) => {
-    try {
-      setLoader(!loader);
-      console.log(data)
-      /* make api call for user signUp */
 
-      /*   await signInMutation.mutateAsync(data); */
-    } catch (error: unknown) {
-      
-      if (error instanceof Error) {
-        console.log(error.message); // `error.message` is now safe to use
-      } else {
-        console.log("An unknown error occurred"); // If it's not an instance of `Error`
-      }
-     
-    } finally {
-      setLoader(false);
-    }
-  };
+
+
+
+
+  const dispatch = useAppDispatch()
+const onSubmit = async (data: {
+  email: string,
+  password: string,
+  fullname: string
+}) => {
+  const { fullname, email, password } = data
+  try {
+ dispatch(setAppLoaderAction(true))
+    const response = await axios.post('https://magzsalone-c6d08b8d094b.herokuapp.com/api/v1/user/register', {
+      email, password,
+      fullName: fullname
+    })
+
+ const {
+   user,
+   message
+ } = response.data
+ 
+ Swal.fire({
+  icon: 'success', // Use 'error' icon
+  title: 'Registration',
+  text: message
+});
+
+ dispatch(setAppLoaderAction(false))
+router.push("/signIn")
+
+
+ } catch (error:any) {
+   dispatch(setAppLoaderAction(false))
+ const errorMessage = error.response?.data?.message || error?.message || `Unknown error`
+ console.log(`error message:`, errorMessage)
+ 
+ Swal.fire({
+   icon: 'error', // Use 'error' icon
+   title: 'Oops...',
+   text: errorMessage,
+ });
+ 
+
+}
+};
 
   return (
     <div className="flex flex-col  h-full relative">

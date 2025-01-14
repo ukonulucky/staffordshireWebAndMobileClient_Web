@@ -5,6 +5,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import { loginSchema } from "@/utils/yubValidation";
 import LoadingScreen from "@/AppGlobal/ComponentLoader";
+import { loginSuccess, setAppLoaderAction } from "@/redux/authSlice";
+import Swal from "sweetalert2";
+import axiosInstance from "@/utils/axiosApp";
+import { useAppDispatch } from "@/redux/store";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 
 // Define TypeScript types for form values
@@ -26,6 +32,8 @@ const LoginComp = () => {
 
 
 
+  const router = useRouter()
+
 
 
 
@@ -37,28 +45,45 @@ const LoginComp = () => {
 
   // Define the form submission handler
 
-  const onSubmit = async (data: { email: string; password: string }) => {
-    try {
-      setLoader(!loader);
-   console.log(data)
-      /* make api call for user signUp */
 
-    /*   await signInMutation.mutateAsync(data); */
-    } catch (error:unknown) {
-  
-      if (error instanceof Error) {
-        console.log(error.message); // `error.message` is now safe to use
-      } else {
-        console.log("An unknown error occurred"); // If it's not an instance of `Error`
-      }
-    } finally {
-      setLoader(false);
-    }
-  };
+
+
+const dispatch = useAppDispatch()
+const onSubmit = async (data: {
+  email: string,
+  password: string
+}) => {
+  try {
+ dispatch(setAppLoaderAction(true))
+ const response = await axios.post('https://magzsalone-c6d08b8d094b.herokuapp.com/api/v1/user/login',data)
+
+ const {
+   user
+ } = response.data
+ router.push("/")
+ dispatch(setAppLoaderAction(false))
+    dispatch(loginSuccess(user))
+    
+localStorage.setItem('user',JSON.stringify(user));
+
+
+ } catch (error:any) {
+   dispatch(setAppLoaderAction(false))
+ const errorMessage = error.response?.data?.message || error?.message || `Unknown error`
+ console.log(`error message:`, errorMessage)
+ 
+ Swal.fire({
+   icon: 'error', // Use 'error' icon
+   title: 'Oops...',
+   text: errorMessage,
+ });
+ 
+
+}
+};
 
   return (
-    <div className="flex flex-col  h-full relative">
-      {loader && <LoadingScreen />}          
+    <div className="flex flex-col  h-full relative">        
           <div className=" flex flex-row justify-between   lg:justify-end  items-center space-x-1 absolute left-4 top-8 right-4 ">
               
               <Link  href={"/"}>
@@ -118,14 +143,7 @@ const LoginComp = () => {
           </p>
         </div>
 
-        <div className="mt-2">
-          <Link
-            href={"/resetpassword"}
-            className="text-blue-950 text-sm font-semibold font-['Inter'] leading-[18.90px] "
-          >
-           Forgot password
-          </Link>
-        </div>
+      
 
         {/* submit button starts */}
         <button
