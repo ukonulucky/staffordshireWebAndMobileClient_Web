@@ -2,12 +2,12 @@
 import AppointmentForm from '@/components/servicePage/appointmentForm'
 import ServiceComp from '@/components/servicePage/serviceComp'
 import { useAppSelector } from '@/redux/store'
-import {serviceList2 } from '@/utils/data'
+
 import { serviceAndCategoryType } from '@/utils/types'
 import Image from 'next/image'
 import React from 'react'
 
-function page() {
+function Page() {
 
   const services= useAppSelector(state => state.service.serviceAndCategory)
 console.log("fetched service", services)
@@ -72,4 +72,4 @@ console.log("fetched service", services)
   )
 }
 
-export default page
+export default Page

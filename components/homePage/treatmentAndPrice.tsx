@@ -1,6 +1,5 @@
 "use client"
 import { useAppSelector } from '@/redux/store'
-import { serviceList } from '@/utils/data'
 import { serviceAndCategoryType } from '@/utils/types'
 import Image from 'next/image'
 import Link from 'next/link'

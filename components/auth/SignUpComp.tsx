@@ -8,7 +8,7 @@ import { signUpSchema } from "@/utils/yubValidation";
 import LoadingScreen from "@/AppGlobal/ComponentLoader";
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 import { useAppDispatch } from "@/redux/store";
-import { loginSuccess, setAppLoaderAction } from "@/redux/authSlice";
+import {  setAppLoaderAction } from "@/redux/authSlice";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useRouter } from "next/navigation";
@@ -61,7 +61,6 @@ const onSubmit = async (data: {
     })
 
  const {
-   user,
    message
  } = response.data
  
@@ -70,7 +69,7 @@ const onSubmit = async (data: {
   title: 'Registration',
   text: message
 });
-
+setLoader(!loader)
  dispatch(setAppLoaderAction(false))
 router.push("/signIn")
 

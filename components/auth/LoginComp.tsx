@@ -4,10 +4,9 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import { loginSchema } from "@/utils/yubValidation";
-import LoadingScreen from "@/AppGlobal/ComponentLoader";
+
 import { loginSuccess, setAppLoaderAction } from "@/redux/authSlice";
 import Swal from "sweetalert2";
-import axiosInstance from "@/utils/axiosApp";
 import { useAppDispatch } from "@/redux/store";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -60,11 +59,19 @@ const onSubmit = async (data: {
  const {
    user
  } = response.data
- router.push("/")
+    router.push("/")
+    setLoader(!loader)
  dispatch(setAppLoaderAction(false))
     dispatch(loginSuccess(user))
     
-localStorage.setItem('user',JSON.stringify(user));
+    if (typeof window !== "undefined") {
+      // Set item from localStorage
+      localStorage.setItem('user',JSON.stringify(user));
+
+      
+    }
+
+
 
 
  } catch (error:any) {

@@ -50,7 +50,7 @@ console.log("date value", getValues("date"))
   
     
       
-    }, [date])
+    }, [date, clearErrors, reset])
     
     
     const handleDateUpdate = (newDate: string) => { 
@@ -74,11 +74,10 @@ console.log("date value", getValues("date"))
     
   // Define the form submission handler
 
-  const onSubmit = async (data: formType) => {
+  const onSubmit = async () => {
     try {
-      console.log(data);
       /* make api call for user signUp */
-
+  setloader(!loader)
       /*   await signInMutation.mutateAsync(data); */
     } catch (error: unknown) {
       if (error instanceof Error) {
