@@ -20,7 +20,7 @@ function HomeFooter() {
           
           />
           <p className='text-center w-10/12 lg:w-7/12 font-inter text-[16px] text-[#00000080] '>
-          Est tortor egestas sed feugiat elementum. Viverra nulla amet a ultrices massa dui. Tortor est purus morbi vitae arcu suspendisse amet.
+          Where beauty meets excellence. Visit us to experience personalized care and unmatched service!
           </p>
 
           <div className='absolute bottom-2 left-0 right-0 text-center'>
