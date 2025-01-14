@@ -42,14 +42,19 @@ function ServiceComp({
                   serviceList.map(service => { 
                       return <div className='flex flex-row items-center mt-4' key={service.serviceName}>
                         
-                              <span>
+
+                        {/* 
+                        className="text-slate-700 text-sm font-medium font-['Inter'] leading-[18px]"
+                        
+                        */}
+                              <span className="text-slate-700 text-sm font-medium font-['Inter'] leading-[18px]">
                               { 
                                   service.serviceName
                               }
                               </span>
                               
-                          <span>.........................................................from</span>
-                          <span className='pl-2'>
+                          <span  className="text-slate-700 text-sm font-medium font-['Inter'] leading-[18px]">.........................................................from</span>
+                          <span   className="text-slate-700 text-sm font-medium font-['Inter'] leading-[18px] pl-2" >
                           ${ 
                                   service.servicePrice
                               }

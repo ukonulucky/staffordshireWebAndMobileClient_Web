@@ -10,7 +10,6 @@ import React from 'react'
 function Page() {
 
   const services= useAppSelector(state => state.service.serviceAndCategory)
-console.log("fetched service", services)
 
   return (
       <div>

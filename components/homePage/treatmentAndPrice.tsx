@@ -43,14 +43,14 @@ function TreatmentAndPrice() {
                             
                               { 
                                   service.services.map(i => <div className='flex flex-row items-center mt-4'  key={i.serviceId}>
-                                      <span>
+                                      <span className="text-slate-700 text-sm font-medium font-['Inter'] leading-[18px]">
                                   { 
                                       i.serviceName
                                   }
                                   </span>
                                   
-                              <span>.........................................................from</span>
-                              <span className='pl-2'>
+                              <span className="text-slate-700 text-sm font-medium font-['Inter'] leading-[18px]">.........................................................from</span>
+                              <span className="text-slate-700 text-sm font-medium font-['Inter'] leading-[18px] pl-2">
                               ${ 
                                       i.servicePrice
                                   }

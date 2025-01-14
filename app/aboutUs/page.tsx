@@ -10,28 +10,15 @@ function page() {
         Blandit at maecenas
       </p>
       <div className="flex flex-row space-x-4">
-        <p className="flex-1">
-          Blandit at maecenas dui sed amet sit enim vitae. Amet purus dictum
-          urna sagittis dignissim. At fermentum nisl ullamcorper orci.
-          Pellentesque id tempor lacus aliquet tempus vitae nibh habitasse
-          consectetur. Augue quis cras blandit habitant neque. Faucibus
-          vestibulum id nisi ligula ultricies et vehicula. Et adipiscing mattis
-          egestas mi placerat duis congue id. Scelerisque integer pulvinar justo
-          sed egetipsum faucibus Lorem ipsum dolor sit amet consectetur. Blandit
-          at maecenas dui sed amet sit enim vitae. Amet purus dictum urna
-          sagittis dignissim. At fermentum nisl ullamcorper orci. Pellentesque
-          id tempor lacus aliquet tempus vitae nibh habitasse consectetur. Augue
-          quis cras blandit habitant neque. Faucibus vestibulum id nisi ligula
-          ultricies et vehicula.
+        <p  className="text-slate-700 text-sm font-medium font-['Inter'] leading-[18px] flex-1">
+        Welcome to Magz Salon, your ultimate destination for beauty and self-care. At Magz Salon, we believe in enhancing your natural beauty with personalized treatments designed to leave you feeling confident and radiant. Our expert team specializes in a wide range of services, including nail care, hair styling, makeup, cosmetology, and rejuvenating spa procedures. 
         </p>
-        <p className="flex-1">
-          Et adipiscing mattis egestas mi placerat duis congue id. Scelerisque
-          integer pulvinar justo sed eget. Pretium ipsum id faucibus euismod
-          tempor sagittis facilisis tristique. Egestas massa purus vel at
-          consectetur convallis cras imperdiet. Cras non orci proin aliquet in
-          ornare egestas euismod dignissim. Aliquet consectetur in a quisque
-          lobortis enim dui. Pellentesque tortor cum orci pulvinar eget a sed.
-          Laoreet arcu purus massa magna dignissim auctor.
+        <p  className="text-slate-700 text-sm font-medium font-['Inter'] leading-[18px] flex-1">
+        
+       
+With a commitment to excellence and the use of high-quality products, we create a relaxing and luxurious experience tailored to your unique preferences. Whether you're preparing for a special occasion or indulging in a well-deserved pampering session, Magz Salon is here to ensure you look and feel your absolute best.
+Step into our world of beauty and let us help you shine!
+
         </p>
       </div>
     </div>
