@@ -1,7 +1,12 @@
 "use client";
-import SignUpComp from "@/components/auth/SignUpComp"
+
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
+
+const  SignUpComp = dynamic(() => import('@/components/auth/SignUpComp'), {
+  ssr: false, // This disables server-side rendering for the component
+});
 
 
 function SignUp() {
